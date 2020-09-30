@@ -1,28 +1,71 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <NavBar 
+      :nav-links = "navLinks"
+      :image-path="require('./assets/logo.png')"
+    />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+/* eslint-disable vue/no-unused-components */
+import NavBar from "./components/NavBar";
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    NavBar
+  },
+  data: function() {
+    return {
+      navLinks: [
+        {
+          text: 'Contact',
+          path: '/contact',
+          icon: 'ion-ios-megaphone'
+        },
+        {
+          text: 'About',
+          path: '/about',
+          icon: 'ion-ios-business'
+        }
+      ]
+    }
   }
-}
+};
+
 </script>
 
-<style>
+<style lang="scss">
+@import 'https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css';
+
+figure {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 10px;
+  margin-inline-end: 0;
+}
+body {
+  margin: 0;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
