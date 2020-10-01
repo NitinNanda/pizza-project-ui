@@ -3,7 +3,11 @@
     <NavBar 
       :nav-links = "navLinks"
       :image-path="require('./assets/logo.png')"
+      background="#fff"
+      link-color="#777"
+      hoverBackground="#ddd"
     />
+    <router-view/>
   </div>
 </template>
 
