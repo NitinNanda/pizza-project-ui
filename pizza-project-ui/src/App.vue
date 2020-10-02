@@ -3,9 +3,9 @@
     <NavBar 
       :nav-links = "navLinks"
       :image-path="require('./assets/logo.png')"
-      background="#fff"
-      link-color="#777"
-      hoverBackground="#ddd"
+      background="#006491"
+      link-color="#fff"
+      hoverBackground="#004666"
     />
     <router-view/>
   </div>
@@ -23,14 +23,19 @@ export default {
     return {
       navLinks: [
         {
-          text: 'Contact',
-          path: '/contact',
-          icon: 'ion-ios-megaphone'
+          text: 'HOME',
+          path: '/',
+          icon: 'ion-ios-home'
         },
         {
-          text: 'About',
-          path: '/about',
-          icon: 'ion-ios-business'
+          text: 'MENU',
+          path: '/menu',
+          icon: 'ion-ios-menu'
+        },
+        {
+          text: 'CONTACT',
+          path: '/contact',
+          icon: 'ion-ios-contact'
         }
       ]
     }

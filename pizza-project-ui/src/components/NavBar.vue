@@ -59,7 +59,7 @@ nav {
 
     i {
       margin-right: 10px;
-      font-size: 20px;
+      font-size: 12px;
     }
 
     li{

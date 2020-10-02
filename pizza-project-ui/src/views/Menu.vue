@@ -1,6 +1,6 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="menu">
+    <h1>This is the menu page</h1>
   </div>
 </template>
 <script>
