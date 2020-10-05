@@ -7,8 +7,8 @@
       <div>
         <span class="zero-contact-text">ZERO CONTACT DELIVERY AND CARRYOUT NOW AVAILABLE</span>
       </div>
-      <div>
-        <a href="" class="btn" @mouseenter="$event.currentTarget.style.background = '#EF6B7F'"
+      <div @click="directToMenu">
+        <a class="btn" @mouseenter="$event.currentTarget.style.background = '#EF6B7F'"
         @mouseleave="$event.currentTarget.style.background = '#e31837' ">Buy Now</a>
       </div>
     </div>
@@ -18,7 +18,12 @@
 <script >
 
 export default {
-  name: 'Home'
+  name: 'Home',
+  methods: {
+    directToMenu: function () {
+       this.$router.push({name: 'Menu'})
+    }
+  }
 }
 </script>
 <style lang="scss">
