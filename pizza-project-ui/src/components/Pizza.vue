@@ -3,10 +3,15 @@
     <div class="class">
       <span><h1>All you can eat Menu.</h1></span>
       <div class="container">
-        <div class="box">1</div>
-        <div class="box">2</div>
-        <div class="box">3</div>
-        <div class="box">4</div>
+        <div class="box" v-for="item in items" :key="item.id">
+          <div>
+            <img :src="item.imgUrl" alt="Image"/>
+              <div>
+                <a class="btn" @mouseenter="$event.currentTarget.style.background = '#EF6B7F'"
+                @mouseleave="$event.currentTarget.style.background = '#e31837' ">Buy Now</a>
+              </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -21,19 +26,37 @@ export default {
           id: 1,
           name: 'Garlic',
           basePrice: 15.5,
-          imgUrl: '../assets/entities/pizza/pizza_1.jpg'
+          imgUrl: require('../assets/entities/pizza/pizza_1.jpg')
         },
         {
           id: 2,
           name: 'Chilli',
           basePrice: 10.5,
-          imgUrl: '../assets/entities/pizza/pizza_2.jpg'
+          imgUrl: require('../assets/entities/pizza/pizza_2.jpg')
         },
         {
           id: 3,
           name: 'Coconut',
           basePrice: 25.5,
-          imgUrl: '../assets/entities/pizza/pizza_3.jpg'
+          imgUrl: require('../assets/entities/pizza/pizza_1.jpg')
+        },
+        {
+          id: 4,
+          name: 'Garlic',
+          basePrice: 15.5,
+          imgUrl: require('../assets/entities/pizza/pizza_1.jpg')
+        },
+        {
+          id: 5,
+          name: 'Chilli',
+          basePrice: 10.5,
+          imgUrl: require('../assets/entities/pizza/pizza_2.jpg')
+        },
+        {
+          id: 6,
+          name: 'Coconut',
+          basePrice: 25.5,
+          imgUrl: require('../assets/entities/pizza/pizza_1.jpg')
         }
       ]
     }
@@ -43,23 +66,58 @@ export default {
 
 <style lang="scss" scoped>
   .container {
-    width: 100%;
+    width: 60%;
     height: auto;
-    background: #007bbf;
+    margin-left: 300px;
 
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     flex-flow: wrap;
   }
 
   .box {
     width: 20%;
-    height: 300px;
-    background: yellow;
-    margin: 20px;
+    height: 250px;
+    margin: 10px;
+    margin-right: 30px;
     box-sizing: border-box;
     font-size: 50px;
+  }
+
+  img {
+    float: left;
+    margin-right: 5px;
+    height: 200px;
+    width: 220px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .btn {
+      font-family: One Dot Condensed Bold,Arial Narrow,Arial,Helvetica,sans-serif;
+      -moz-osx-font-smoothing: grayscale;
+      display: inline-block;
+      display: inline-flex;
+      -ms-flex-align: stretch;
+      align-items: stretch;
+      -ms-flex-pack: center;
+      justify-content: center;
+      text-align: center;
+      box-sizing: border-box;
+      width: 220px;
+      font-size: 1.125rem;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: .027em;
+      text-decoration: none;
+      background-color: #e31837;
+      color: #fff;
+      border: 0;
+      border-radius: .1875rem;
+      padding: .55556em .55556em .5em;
+      cursor: pointer;
+      transition: box-shadow .3s linear;
+      -webkit-font-smoothing: antialiased;
   }
 
   @media screen and (max-width: 1200px){

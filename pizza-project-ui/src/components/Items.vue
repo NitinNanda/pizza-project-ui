@@ -68,6 +68,15 @@ export default {
     ul {
     flex-direction: column;
 
+      img {
+        float: left;
+        margin-right: 5px;
+        height: 73px;
+        width: 90px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
       .grid {
         border: 1px solid rgb(141, 139, 139);
         margin-bottom: 5px;
@@ -96,18 +105,6 @@ export default {
         }
       }
     }
-  }
-
-  
-  
-
-  img {
-    float: left;
-    margin-right: 5px;
-    height: 73px;
-    width: 90px;
-    display: inline-block;
-    vertical-align: middle;
   }
 
 </style>
