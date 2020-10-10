@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="class">
-      <span><h1>All you can eat Menu.</h1></span>
+      <span><h1>All you can eat</h1></span>
       <div class="container">
-        <div class="box" v-for="item in items" :key="item.id">
+        <div class="box" v-for="item in pizzaList" :key="item.id">
           <div>
-            <img :src="item.imgUrl" alt="Image"/>
+            <img :src="require(`../assets${item.imgUrl}`)" alt="Image"/>
               <div>
                 <a class="btn" @mouseenter="$event.currentTarget.style.background = '#EF6B7F'"
                 @mouseleave="$event.currentTarget.style.background = '#e31837' ">Buy Now</a>
@@ -18,48 +18,22 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data () {
     return {
-      items: [
-        {
-          id: 1,
-          name: 'Garlic',
-          basePrice: 15.5,
-          imgUrl: require('../assets/entities/pizza/pizza_1.jpg')
-        },
-        {
-          id: 2,
-          name: 'Chilli',
-          basePrice: 10.5,
-          imgUrl: require('../assets/entities/pizza/pizza_2.jpg')
-        },
-        {
-          id: 3,
-          name: 'Coconut',
-          basePrice: 25.5,
-          imgUrl: require('../assets/entities/pizza/pizza_1.jpg')
-        },
-        {
-          id: 4,
-          name: 'Garlic',
-          basePrice: 15.5,
-          imgUrl: require('../assets/entities/pizza/pizza_1.jpg')
-        },
-        {
-          id: 5,
-          name: 'Chilli',
-          basePrice: 10.5,
-          imgUrl: require('../assets/entities/pizza/pizza_2.jpg')
-        },
-        {
-          id: 6,
-          name: 'Coconut',
-          basePrice: 25.5,
-          imgUrl: require('../assets/entities/pizza/pizza_1.jpg')
-        }
-      ]
+      pizzaList: []
     }
+  },
+  mounted: function () {
+    axios.get('http://localhost:8081/api/pizza/all')
+    .then(response => {
+      this.pizzaList = response.data;
+    })
+    .catch(e => {
+      console.log(e);
+    })
   }
 }
 </script>
