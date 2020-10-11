@@ -8,7 +8,8 @@
             <img :src="require(`../assets${item.imgUrl}`)" alt="Image"/>
               <div>
                 <a class="btn" @mouseenter="$event.currentTarget.style.background = '#EF6B7F'"
-                @mouseleave="$event.currentTarget.style.background = '#e31837' ">Buy Now</a>
+                @mouseleave="$event.currentTarget.style.background = '#e31837'"
+                @click="buyItem">Buy Now</a>
               </div>
           </div>
         </div>
@@ -34,6 +35,11 @@ export default {
     .catch(e => {
       console.log(e);
     })
+  },
+  methods: {
+    buyItem () {
+      
+    }
   }
 }
 </script>

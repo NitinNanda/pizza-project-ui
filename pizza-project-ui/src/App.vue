@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <NavBar 
-      :nav-links = "navLinks"
+      :left-nav-links = "leftNavLinks"
+      :right-nav-links = "rightNavLinks"
       :image-path="require('./assets/logo.png')"
       background="#006491"
       link-color="#fff"
@@ -21,7 +22,7 @@ export default {
   },
   data: function() {
     return {
-      navLinks: [
+      leftNavLinks: [
         {
           text: 'HOME',
           path: '/',
@@ -36,6 +37,18 @@ export default {
           text: 'CONTACT',
           path: '/contact',
           icon: 'ion-ios-contact'
+        }
+      ],
+      rightNavLinks: [
+        {
+          text: 'Sign-In',
+          path: '/signin',
+          icon: 'ion-ios-login'
+        },
+        {
+          text: 'Cart',
+          path: '/cart',
+          icon: 'ion-ios-cart'
         }
       ]
     }

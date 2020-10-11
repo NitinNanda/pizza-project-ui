@@ -1,13 +1,13 @@
 <template>
   <div class="container">
     <ul>
-      <li v-for="item in items"
+      <li v-for="item in itemList"
       :key="item.id"
       class="grid"
       @click="redirect(item)">
         <a>
           <div class="item-image">
-            <img :src="item.imgurl" alt="Image"/>
+            <img :src="require(`../assets${item.imgUrl}`)" alt="Image"/>
             <div>
               <span><h3>{{item.name}}</h3></span>
               <br>
@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'Items',
   methods: {
@@ -31,30 +33,17 @@ export default {
   },
   data() {
     return {
-      items: [
-        {
-          id: 1,
-          name: 'Pizza',
-          imgurl: require('../assets/items/pizza.jpg'),
-          detail: 'Find all the pizza variants here',
-          path: '/pizza'
-        },
-        {
-          id: 2,
-          name: 'Side',
-          imgurl: require('../assets/items/side.jpg'),
-          detail: 'Pasta, fries, nuggets and much more',
-          path: '/side'
-        },
-        {
-          id: 3,
-          name: 'Drink',
-          imgurl: require('../assets/items/drink.jpg'),
-          detail: 'A variety of fizzy and non-fizzy drinks',
-          path: '/id'
-        }
-      ]
+      itemList: []
     }
+  },
+  mounted: function () {
+    axios.get('http://localhost:8081/api/item/all')
+    .then(response => {
+      this.itemList = response.data;
+    })
+    .catch(e => {
+      console.log(e);
+    })
   }
 }
 </script>
