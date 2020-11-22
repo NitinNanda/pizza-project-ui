@@ -1,49 +1,30 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import Contact from "../views/Contact.vue";
-import Menu from "../views/Menu.vue";
-import Pizza from "../components/Pizza.vue";
-import Side from "../components/Side.vue";
-import Drink from "../components/Drink.vue";
+import Vue from 'vue'
+import VueRouter from 'vue-router'
 
-Vue.use(VueRouter);
+import routes from './routes'
 
-const routes = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home
-  },
-  {
-    path: "/menu",
-    name: "Menu",
-    component: Menu
-  },
-  {
-    path: "/contact",
-    name: "Contact",
-    component: Contact
-  },
-  {
-    path: "/pizza",
-    name: "Pizza",
-    component: Pizza
-  },
-  {
-    path: "/side",
-    name: "Side",
-    component: Side
-  },
-  {
-    path: "/drink",
-    name: "Drink",
-    component: Drink
-  }
-];
+Vue.use(VueRouter)
 
-const router = new VueRouter({
-  routes
-});
+/*
+ * If not building with SSR mode, you can
+ * directly export the Router instantiation;
+ *
+ * The function below can be async too; either use
+ * async/await or return a Promise which resolves
+ * with the Router instance.
+ */
 
-export default router;
+export default function (/* { store, ssrContext } */) {
+  const Router = new VueRouter({
+    scrollBehavior: () => ({ x: 0, y: 0 }),
+    routes,
+
+    // Leave these as they are and change in quasar.conf.js instead!
+    // quasar.conf.js -> build -> vueRouterMode
+    // quasar.conf.js -> build -> publicPath
+    mode: process.env.VUE_ROUTER_MODE,
+    base: process.env.VUE_ROUTER_BASE
+  })
+
+  return Router
+}
