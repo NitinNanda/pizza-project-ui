@@ -18,7 +18,7 @@
 <script >
 
 export default {
-  name: 'PageIndex',
+  name: 'Home',
   methods: {
     directToMenu: function () {
       this.$router.push({ name: 'Menu' })

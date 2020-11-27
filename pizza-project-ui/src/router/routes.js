@@ -1,3 +1,5 @@
+import Menu from '../layouts/Menu.vue'
+import Home from '../layouts/Home.vue'
 
 const routes = [
   {
@@ -6,6 +8,17 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/Index.vue') }
     ]
+  },
+
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/menu',
+    name: 'Menu',
+    component: Menu
   },
 
   // Always leave this as last one,
